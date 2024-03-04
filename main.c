@@ -6,11 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/04 19:51:10 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/04 21:35:29 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 // void	push_swap(char **argv)
 // {
@@ -40,6 +41,7 @@ int	main(int argc, char **argv)
 	{
 		init_params(&params, argc);
 		params.check = check_if_valid (argv, &params);
+		printf("%d\n", params.check);
 		if (params.check != 0)
 			return (error_message());
 		write(1, "Valid", 6);
