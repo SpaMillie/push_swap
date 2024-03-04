@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:57:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/04 16:05:27 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/04 16:58:52 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,21 @@ int	error_message(void)
 	write(1, '\n', 1);
 	return (0);
 }
+int	check_for_spaces(char *str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ' ')
+			j++;
+		i++;
+	}
+	return (j);
+}
 
 int	check_str(char *str)
 {
@@ -51,36 +66,46 @@ int	check_if_valid_one(char *str, t_params *params)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = check_for_spaces(str);
+	if (i == 0)
 	{
-		while (str[i] != ' ')
+		i = 0;
+		while (str[i] != '\0')
 		{
-			
+			if (i == 0 && (str[i] == '+' || str[i] == '-'))
+				i++;
+			if (str[i] < '0' || str[i] > '9')
+				return (1);
+			i++;
 		}
-		if (i == 0 && (str[i] == '+' || str[i] == '-'))
-			i++;	
-		i++;
-	}	
+	}
+	else
+	{
+		params->counter = 0;
+		while (str[i] != '\0')
+		{
+
+		}
+	}
+	return (0);
 }
 
 
 int	check_if_valid(char **str, t_params *params)
 {
-	int	i;
-
-	i = 0;
 	if (params->args == 1)
-		check_if_valid_one(str[i], params);
-	else
-		check_if_valid_more(str, params);
-	while (i < params->args)
 	{
-		params->check = check_str(str[i]);
+		params->check = check_if_valid_one(str[0], params);
 		if (params->check != 0)
 			return (1);
-		i++;
 	}
+	else
+	{
+		params->check = check_if_valid_more(str, params);
+		if (params->check != 0)
+			return (1);
+	}
+	return (0);
 }
 
 void	init_params(t_params *params, int argc)
@@ -101,9 +126,8 @@ int	main(int argc, char **argv)
 		params->check = check_if_valid (argv, params);
 		if (params->check != 0)
 			return (error_message());
-		params->check = create_a();
-		if(params->check != 0)
-			return (error_message());
+		create_a();
+		push_swap(params->list);
 	}
 	else
 		return (error_message());
