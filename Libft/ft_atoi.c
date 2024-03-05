@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:49:10 by mspasic           #+#    #+#             */
-/*   Updated: 2023/11/17 18:20:02 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/05 17:57:44 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static int	ft_isspace(char c)
 		return (1);
 	if (c == ' ' || c == '\f' || c == '\v')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 static int	ft_sign(char c)
@@ -26,8 +25,7 @@ static int	ft_sign(char c)
 		return (-1);
 	if (c == '+')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 static int	ft_isnum(char c)

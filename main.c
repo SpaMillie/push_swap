@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/04 21:35:29 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/05 19:22:46 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,34 @@
 // void	push_swap(char **argv)
 // {
 // }
+
+int	create_a(char **str, t_params *params)
+{
+	int		i;
+	int		j;
+	char	**list;
+
+	j = params->args;
+	i = 1;
+	if (params->args == 2)
+	{
+		printf("checking the string %s\n", str[i]);
+		list = ft_split(str[i], ' ');
+		if (list == NULL)
+			return (1);
+	}
+	else
+		list = str;
+	while (j > 1)
+	{
+		params->list[i - 1] = ft_atoi(list[i]);
+		i++;
+		j--;
+	}
+	if (params->args == 2)
+		free(list);
+	return (0);
+}
 
 //check if the new line should also be in 2
 int	error_message(void)
@@ -27,7 +55,7 @@ int	error_message(void)
 
 void	init_params(t_params *params, int argc)
 {
-	// params->list = NULL;
+	params->list = NULL;
 	params->check = 0;
 	params->counter = 0;
 	params->args = argc;
@@ -41,12 +69,17 @@ int	main(int argc, char **argv)
 	{
 		init_params(&params, argc);
 		params.check = check_if_valid (argv, &params);
-		printf("%d\n", params.check);
 		if (params.check != 0)
 			return (error_message());
-		write(1, "Valid", 6);
-		write(1, "\n", 1);
-		// create_a();
+		params.check = create_a(argv, &params);
+		if (params.check != 0)
+			return (error_message());
+		printf("check passed = %d\n", params.check);
+		// if (params.counter == 0)
+		// {
+		// 	while (params.list)
+		// 		printf("%d\n", params.list[params.counter++]);
+		// }
 		// push_swap(params->list);
 	}
 	else

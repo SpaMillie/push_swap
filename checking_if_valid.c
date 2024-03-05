@@ -6,11 +6,30 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:00:25 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/05 14:57:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/05 18:24:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	soft_check_for_limit(char *str, int length)
+{
+	int	i;
+
+	i = 0;
+	if (length > 11)
+		return (0);
+	if (length == 11)
+	{
+		if (str[i] != '-' && str[i] != '+')
+			return (0);
+		i++;
+	}
+	if (str[i] < '0' || str[i] > '2')
+		return (0);
+	return (1);
+}
+
 
 int	check_for_spaces(char *str)
 {
@@ -35,8 +54,12 @@ int	check_str(char *str, int i)
 
 	k = i;
 	j = ft_strlen(str);
-	if (j > 10)
-		return (0);
+	if (j >= 10)
+	{
+		j = soft_check_for_limit(str, j);
+		if (j == 0)
+			return (0);
+	}
 	while (str[k] != '\0' && str[k] != ' ')
 	{
 		if (k == i && (str[k] == '+' || str[k] == '-'))
