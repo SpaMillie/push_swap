@@ -6,12 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:00:25 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/04 21:57:21 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/05 14:57:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	check_for_spaces(char *str)
 {
@@ -32,12 +31,14 @@ int	check_for_spaces(char *str)
 int	check_str(char *str, int i)
 {
 	int	k;
+	int	j;
 
 	k = i;
-	while (str[k] != ' ' || str[k] != '\0')
+	j = ft_strlen(str);
+	if (j > 10)
+		return (0);
+	while (str[k] != '\0' && str[k] != ' ')
 	{
-		printf("str[k] = %c\n", str[k]);
-		printf("str = %s\n", str);
 		if (k == i && (str[k] == '+' || str[k] == '-'))
 			k++;
 		else if (str[k] < '0' || str[k] > '9')
@@ -53,11 +54,9 @@ int	check_if_valid_one(char *str, t_params *params)
 	int	i;
 
 	i = check_for_spaces(str);
-	printf("spaces = %d\n", i);
 	if (i == 0)
 	{
 		i = check_str(str, 0);
-		printf("i = %d\n", i);
 		if (i == 0)
 			return (1);
 	}
@@ -68,10 +67,11 @@ int	check_if_valid_one(char *str, t_params *params)
 		while (str[i] != '\0')
 		{
 			params->check = check_str(str, i);
-			printf("has spaces, check = %d\n", params->check);
 			if (params->check == 0)
 				return (1);
-			i += params->check;
+			i = params->check;
+			if (str[i] != '\0')
+				i += 1;
 		}
 	}
 	return (0);
@@ -85,7 +85,6 @@ int	check_if_valid(char **str, t_params *params)
 	if (params->args == 2)
 	{
 		params->check = check_if_valid_one(str[1], params);
-		printf("args = 1, check = %d\n", params->check);
 		if (params->check != 0)
 			return (1);
 	}
@@ -95,7 +94,6 @@ int	check_if_valid(char **str, t_params *params)
 		while (i < params->args)
 		{
 			params->check = check_str(str[i], 0);
-			printf("args > 1, check = %d\n", params->check);
 			if (params->check == 0)
 				return (1);
 			i++;
