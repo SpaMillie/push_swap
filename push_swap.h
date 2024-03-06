@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/05 18:57:01 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/06 15:48:22 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_params
 }	t_params;
 
 //main.c
+int		create_a(char **str, t_params *params);
+int		check_passed(char **str, t_params *params);
 int		error_message(void);
 void	init_params(t_params *params, int argc);
 int		main(int argc, char **argv);

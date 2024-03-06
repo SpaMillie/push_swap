@@ -2,4 +2,6 @@
 *.o
 push_swap
 Libft/libft.a
-# testing.c
+testing.c
+a.out
+a.out.dSYM

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/05 19:22:46 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/06 15:48:04 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,47 @@
 
 int	create_a(char **str, t_params *params)
 {
+	int	i;
+	int	j;
+
+	i = 0;
+	j = params->args;
+	while (str[i] != '\0')
+		i++;
+	params->list = malloc(sizeof(int) * i);
+	if (!params->list)
+		return (1);
+	i = 0;
+	while (j-- > 1)
+	{
+		params->list[i] = ft_atoi(str[i]);
+		i++;
+	}
+	return (0);
+}
+
+int	check_passed(char **str, t_params *params)
+{
 	int		i;
 	int		j;
 	char	**list;
 
+	i = 0;
 	j = params->args;
-	i = 1;
 	if (params->args == 2)
 	{
-		printf("checking the string %s\n", str[i]);
 		list = ft_split(str[i], ' ');
 		if (list == NULL)
 			return (1);
 	}
 	else
 		list = str;
-	while (j > 1)
+	params->check = create_a(list, params);
+	if (params->check == 1)
 	{
-		params->list[i - 1] = ft_atoi(list[i]);
-		i++;
-		j--;
+		if (j == 2)
+			free(list);
+		return (1);
 	}
 	if (params->args == 2)
 		free(list);
@@ -71,16 +92,11 @@ int	main(int argc, char **argv)
 		params.check = check_if_valid (argv, &params);
 		if (params.check != 0)
 			return (error_message());
-		params.check = create_a(argv, &params);
+		params.check = check_passed(argv + 1, &params);
 		if (params.check != 0)
 			return (error_message());
-		printf("check passed = %d\n", params.check);
-		// if (params.counter == 0)
-		// {
-		// 	while (params.list)
-		// 		printf("%d\n", params.list[params.counter++]);
-		// }
-		// push_swap(params->list);
+		// push_swap(params.list);
+		//free(params.list);
 	}
 	else
 		return (error_message());
