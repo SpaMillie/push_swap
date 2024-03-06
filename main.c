@@ -6,16 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/06 15:48:04 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/06 16:49:04 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-// void	push_swap(char **argv)
-// {
-// }
 
 int	create_a(char **str, t_params *params)
 {

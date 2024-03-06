@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/06 15:48:22 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/06 16:50:12 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ int		check_for_spaces(char *str);
 int		check_str(char *str, int i);
 int		check_if_valid_one(char *str, t_params *params);
 int		check_if_valid(char **str, t_params *params);
+//push_swap.c
 #endif
