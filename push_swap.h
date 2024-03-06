@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/06 16:50:12 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/06 18:10:33 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 
 typedef struct s_params
 {
-	int	*list;
-	int	check;
-	int	counter;
-	int	args;
+	int		*list;
+	int		check;
+	int		counter;
+	int		args;
+	int		length_a;
+	int		length_b;
+	char	stack;
 }	t_params;
 
 //main.c
