@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/06 18:10:33 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/07 15:48:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 typedef struct s_params
 {
-	int		*list;
+	int		*stack_a;
+	int		*stack_b;
 	int		check;
 	int		counter;
 	int		args;
@@ -29,7 +30,6 @@ typedef struct s_params
 //main.c
 int		create_a(char **str, t_params *params);
 int		check_passed(char **str, t_params *params);
-int		error_message(void);
 void	init_params(t_params *params, int argc);
 int		main(int argc, char **argv);
 //checking_if_valid.c
@@ -39,4 +39,8 @@ int		check_str(char *str, int i);
 int		check_if_valid_one(char *str, t_params *params);
 int		check_if_valid(char **str, t_params *params);
 //push_swap.c
+//swap_and_push.c
+//error_handling.c
+void	malloc_fail(t_params *params);
+int		error_message(void);
 #endif

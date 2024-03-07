@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/06 18:11:03 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/07 15:23:28 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	check_passed(char **str, t_params *params)
 int	error_message(void)
 {
 	write(2, "Error", 6);
-	write(1, "\n", 1);
+	write(2, "\n", 1);
 	return (0);
 }
 
