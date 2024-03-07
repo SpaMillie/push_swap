@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/07 16:35:12 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/07 18:21:59 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define PUSH_SWAP_H
 # include <unistd.h>
+# include <stdlib.h>
 # include "Libft/libft.h"
 
 typedef struct s_params

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/07 16:38:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/07 18:26:53 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	create_a(char **str, t_params *params)
 		params->length_a++;
 	params->stack_a = malloc(sizeof(int) * params->length_a);
 	if (!params->stack_a)
+	{
+		malloc_fail(params);
 		return (1);
+	}
 	while (j-- > 1)
 	{
 		params->stack_a[i] = ft_atoi(str[i]);
@@ -69,7 +72,7 @@ void	init_params(t_params *params, int argc)
 	params->args = argc;
 	params->length_a = 0;
 	params->length_b = 0;
-	params->stack = a;
+	params->stack = 'a';
 }
 
 int	main(int argc, char **argv)
