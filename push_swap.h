@@ -6,11 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/07 15:48:11 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/07 16:35:12 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
+
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include "Libft/libft.h"
@@ -19,6 +20,7 @@ typedef struct s_params
 {
 	int		*stack_a;
 	int		*stack_b;
+	int		*aux_stack;
 	int		check;
 	int		counter;
 	int		args;
@@ -40,7 +42,13 @@ int		check_if_valid_one(char *str, t_params *params);
 int		check_if_valid(char **str, t_params *params);
 //push_swap.c
 //swap_and_push.c
+void	swap(int *stack, t_params *params, int length);
+void	swap_both(int *a, int *b, t_params *params);
+int		*push_temp_1(int *stack_1, int*stack_2, t_params *params, int length);
+int		*push_temp_2(int*stack_2, t_params *params, int length);
+void	push(int *stack_1, int *stack_2, char c, t_params *params);
 //error_handling.c
 void	malloc_fail(t_params *params);
 int		error_message(void);
+
 #endif
