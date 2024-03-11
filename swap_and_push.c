@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:35:32 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/07 16:33:12 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/11 14:04:00 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ int	*push_temp_1(int *stack_1, int*stack_2, t_params *params, int length)
 
 	temp = malloc(sizeof(int) * length);
 	if (!temp)
+	{
+		malloc_fail;
 		return (NULL);
+	}
 	params->counter = 0;
 	while (params->counter < length)
 	{
@@ -67,7 +70,10 @@ int	*push_temp_2(int*stack_2, t_params *params, int length)
 
 	temp = malloc(sizeof(int) * length);
 	if (!temp)
+	{
+		malloc_fail;
 		return (NULL);
+	}
 	params->counter = 0;
 	while (params->counter < length)
 	{
@@ -82,8 +88,6 @@ void	push(int *stack_1, int *stack_2, char c, t_params *params)
 {
 	int	length;
 
-	if (!stack_1 || !stack_2)
-		return ;
 	if (c == 'a')
 		length = params->length_a + 1;
 	else
@@ -93,11 +97,6 @@ void	push(int *stack_1, int *stack_2, char c, t_params *params)
 		stack_2 = push_temp_2(stack_2, params, params->length_b - 1);
 	else
 		stack_2 = push_temp_2(stack_2, params, params->length_a - 1);
-	if (!stack_1 || !stack_2)
-	{
-		malloc_fail(params);
-		return ;
-	}
 	if (c == 'a')
 		write(1, "pa", 3);
 	else

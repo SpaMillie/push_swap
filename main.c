@@ -6,11 +6,13 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/07 18:26:53 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/11 13:52:18 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	push_swap ()
 
 int	create_a(char **str, t_params *params)
 {
@@ -88,8 +90,9 @@ int	main(int argc, char **argv)
 		params.check = check_passed(argv + 1, &params);
 		if (params.check != 0)
 			return (error_message());
-		// push_swap(params.list);
-		//free(params.list);
+		push_swap(&params);
+		free(params.stack_a);
+		free(params.stack_b);
 	}
 	else
 		return (error_message());
