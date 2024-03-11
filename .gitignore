@@ -5,3 +5,6 @@ Libft/libft.a
 a.out
 a.out.dSYM
 testing.c
+testing
+testing.dSYM
+.vscode/
