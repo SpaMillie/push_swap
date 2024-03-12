@@ -6,11 +6,20 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:26:52 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 12:55:36 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 14:14:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	duplicate_found(t_params *params)
+{
+	free(params->stack_a);
+	free(params->stack_b);
+	free(params->aux_stack);
+	error_message();
+	return (1);
+}
 
 void	malloc_fail(t_params *params)
 {
