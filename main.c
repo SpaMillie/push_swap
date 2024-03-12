@@ -6,25 +6,30 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/11 13:52:18 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 13:05:03 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap ()
+int	push_swap (t_params *params)
+{
 
-int	create_a(char **str, t_params *params)
+}
+
+int	create_stacks(char **str, t_params *params)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = params->args;
-	while (str[params->length_a] != '\0')
-		params->length_a++;
-	params->stack_a = malloc(sizeof(int) * params->length_a);
-	if (!params->stack_a)
+	while (str[params->length] != '\0')
+		params->length++;
+	params->stack_a = malloc(sizeof(int) * params->length);
+	params->stack_b = malloc(sizeof(int) * params->length);
+	params->aux_stack = malloc(sizeof(int) * params->length);
+	if (!params->stack_a || !params->stack_b || !params->aux_stack)
 	{
 		malloc_fail(params);
 		return (1);
@@ -53,7 +58,7 @@ int	check_passed(char **str, t_params *params)
 	}
 	else
 		list = str;
-	params->check = create_a(list, params);
+	params->check = create_stacks(list, params);
 	if (params->check == 1)
 	{
 		if (j == 2)
@@ -69,11 +74,14 @@ void	init_params(t_params *params, int argc)
 {
 	params->stack_a = NULL;
 	params->stack_b = NULL;
+	params->aux_stack = NULL;
 	params->check = 0;
 	params->counter = 0;
 	params->args = argc;
+	params->length = 0;
 	params->length_a = 0;
 	params->length_b = 0;
+	params->length_aux = 0;
 	params->stack = 'a';
 }
 

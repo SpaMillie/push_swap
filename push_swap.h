@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/07 18:21:59 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 13:04:05 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "Libft/libft.h"
-
+/* length == index */
 typedef struct s_params
 {
 	int		*stack_a;
@@ -25,13 +25,15 @@ typedef struct s_params
 	int		check;
 	int		counter;
 	int		args;
+	int		length;
 	int		length_a;
 	int		length_b;
+	int		length_aux;
 	char	stack;
 }	t_params;
 
 //main.c
-int		create_a(char **str, t_params *params);
+int		create_stacks(char **str, t_params *params);
 int		check_passed(char **str, t_params *params);
 void	init_params(t_params *params, int argc);
 int		main(int argc, char **argv);
@@ -45,8 +47,8 @@ int		check_if_valid(char **str, t_params *params);
 //swap_and_push.c
 void	swap(int *stack, t_params *params, int length);
 void	swap_both(int *a, int *b, t_params *params);
-int		*push_temp_1(int *stack_1, int*stack_2, t_params *params, int length);
-int		*push_temp_2(int*stack_2, t_params *params, int length);
+void	push_to(int temp, int *stack, t_params *params, int length);
+void	push_from(int *stack, t_params *params, int length);
 void	push(int *stack_1, int *stack_2, char c, t_params *params);
 //error_handling.c
 void	malloc_fail(t_params *params);
