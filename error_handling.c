@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:26:52 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 14:14:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 14:58:45 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	malloc_fail(t_params *params)
 	free(params->stack_b);
 	free(params->aux_stack);
 	write(2, "Error: Malloc failed", 21);
-	write(2, '\n', 1);
+	write(2, "\n", 1);
 }
 
 int	error_message(void)

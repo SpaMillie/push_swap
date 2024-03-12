@@ -6,11 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 14:27:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 14:44:25 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	create_stacks(char **str, t_params *params)
 {

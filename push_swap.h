@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 14:24:18 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 14:55:34 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rr_both(int *a, int *b, t_params *params);
 //swap_and_push.c
 void	swap(int *stack, t_params *params, int length);
 void	swap_both(int *a, int *b, t_params *params);
-void	push_to(int temp, int *stack, t_params *params, int length);
+void	push_to(int temp, int *stack, int length);
 void	push_from(int *stack, t_params *params, int length);
 void	push(int *stack_1, int *stack_2, char c, t_params *params);
 //error_handling.c
