@@ -6,12 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 14:44:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:01:24 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	create_stacks(char **str, t_params *params)
 {
@@ -97,12 +96,6 @@ int	main(int argc, char **argv)
 		params.check = check_passed(argv + 1, &params);
 		if (params.check != 0)
 			return (error_message());
-		int i = 0;
-		while (i != params.length_aux)
-		{
-			printf("aux stack = %d\n", params.aux_stack[i]);
-			i++;
-		}
 		// push_swap(&params);
 		free(params.stack_a);
 		free(params.stack_b);

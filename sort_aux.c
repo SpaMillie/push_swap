@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:49:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 14:57:19 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:01:18 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	add_number(t_params *params, int num, int start, int end)
 		params->aux_stack[end] = params->aux_stack[end - 1];
 		end--;
 	}
-	params->aux_stack[end] = num;
+	params->aux_stack[start] = num;
 }
 
 int	sort_aux(t_params *params, int length)
@@ -40,9 +40,10 @@ int	sort_aux(t_params *params, int length)
 			else if (params->aux_stack[i] < params->stack_a[params->counter])
 				i++;
 			else
-				add_number(params, params->stack_a[params->counter],
-					i - 1, params->length_aux + 1);
+				break ;
 		}
+		add_number(params, params->stack_a[params->counter], \
+					i, params->length_aux + 1);
 		params->counter++;
 		params->length_aux++;
 	}

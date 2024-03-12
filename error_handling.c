@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:26:52 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 14:58:45 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 15:55:55 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	duplicate_found(t_params *params)
 	free(params->stack_a);
 	free(params->stack_b);
 	free(params->aux_stack);
-	error_message();
 	return (1);
 }
 
