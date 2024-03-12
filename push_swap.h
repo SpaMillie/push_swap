@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 16:01:54 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/12 18:27:20 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ int		check_if_valid(char **str, t_params *params);
 void	add_number(t_params *params, int num, int start, int end);
 int		sort_aux(t_params *params, int length);
 //push_swap.c
+int		check_if_sorted(t_params *params);
+void	three_nums(t_params *params);
+void	push_swap(t_params *params);
 //rotate.c
 void	r_stack(int *stack, t_params *params, char c);
 void	r_both(int *a, int *b, t_params *params);
