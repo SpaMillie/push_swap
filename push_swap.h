@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 18:27:20 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/13 17:56:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int		check_if_valid(char **str, t_params *params);
 void	add_number(t_params *params, int num, int start, int end);
 int		sort_aux(t_params *params, int length);
 //push_swap.c
+int		find_the_big(t_params *params, int *stack, int length);
+// int		find_the_small(t_params *params, int *stack, int length);
 int		check_if_sorted(t_params *params);
 void	three_nums(t_params *params);
 void	push_swap(t_params *params);
@@ -61,7 +63,7 @@ void	swap(int *stack, t_params *params, int length);
 void	swap_both(int *a, int *b, t_params *params);
 void	push_to(int temp, int *stack, int length);
 void	push_from(int *stack, t_params *params, int length);
-void	push(int *stack_1, int *stack_2, char c, t_params *params);
+void	push(int *stack_a, int *stack_b, char c, t_params *params);
 //error_handling.c
 int		duplicate_found(t_params *params);
 void	malloc_fail(t_params *params);

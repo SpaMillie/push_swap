@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:35:32 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 14:56:08 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/13 16:05:54 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,27 @@ void	push_from(int *stack, t_params *params, int length)
 	}
 }
 
-void	push(int *stack_1, int *stack_2, char c, t_params *params)
+void	push(int *stack_a, int *stack_b, char c, t_params *params)
 {
 	if (c == 'a')
 	{
-		if (stack_2 == NULL)
+		if (stack_b == NULL)
 			return ;
 		params->length_a = params->length_a + 1;
 		params->length_b = params->length_b - 1;
-		push_to(stack_2[0], stack_1, params->length_a);
-		push_from(stack_2, params, params->length_b);
+		push_to(stack_b[0], stack_a, params->length_a);
+		push_from(stack_b, params, params->length_b);
 		write(1, "pa", 3);
 		write(1, "\n", 1);
 	}
 	else
 	{
-		if (stack_1 == NULL)
+		if (stack_a == NULL)
 			return ;
 		params->length_b = params->length_b + 1;
 		params->length_a = params->length_a - 1;
-		push_to(stack_1[0], stack_2, params->length_b);
-		push_from(stack_1, params, params->length_a);
+		push_to(stack_a[0], stack_b, params->length_b);
+		push_from(stack_a, params, params->length_a);
 		write(1, "pb", 3);
 		write(1, "\n", 1);
 	}

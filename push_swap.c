@@ -6,12 +6,55 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:26:01 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 18:32:27 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/13 16:51:30 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> //delete this
+
+int	find_the_big(t_params *params, int *stack, int length)
+{
+	int	i;
+
+	i = stack[0];
+	params->counter = 1;
+	while (params->counter < length)
+	{
+		if (i < stack[params->counter])
+		{
+			i = stack[params->counter];
+			params->counter++;
+		}
+		else
+			params->counter++;
+	}
+	params->counter = 0;
+	while (stack[params->counter] != i)
+		params->counter++;
+	return (params->counter);
+}
+
+// int	find_the_small(t_params *params, int *stack, int length)
+// {
+// 	int	i;
+
+// 	i = stack[0];
+// 	params->counter = 1;
+// 	while (params->counter < length)
+// 	{
+// 		if (i > stack[params->counter])
+// 		{
+// 			i = stack[params->counter];
+// 			params->counter++;
+// 		}
+// 		else
+// 			params->counter++;
+// 	}
+// 	params->counter = 0;
+// 	while (stack[params->counter] != i)
+// 		params->counter++;
+// 	return (params->counter);
+// }
 
 int	check_if_sorted(t_params *params)
 {
@@ -53,12 +96,11 @@ void	push_swap(t_params *params)
 		return ;
 	if (params->length == 2)
 	{
-		if (check_if_sorted(params) != 0)
-			swap(params->stack_a, params, 2);
+		swap(params->stack_a, params, 2);
 		return ;
 	}
 	else if (params->length == 3)
 		three_nums(params);
 	else
-		printf("not yet\n");
+		hacky_stack(params);
 }
