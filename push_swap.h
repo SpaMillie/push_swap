@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/13 17:56:11 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/15 19:55:45 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,9 @@ void	push(int *stack_a, int *stack_b, char c, t_params *params);
 int		duplicate_found(t_params *params);
 void	malloc_fail(t_params *params);
 int		error_message(void);
+//hacky_stack.c
+void	hacky_stack(t_params *params);
+void	half_half(int start, int end, int half, t_params *params);
+void	sixty_smallest(t_params *params);
 
 #endif

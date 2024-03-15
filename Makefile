@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 21:44:20 by mspasic           #+#    #+#              #
-#    Updated: 2024/03/12 14:22:05 by mspasic          ###   ########.fr        #
+#    Updated: 2024/03/15 19:57:48 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SOURCE_FILES = main.c \
 			swap_and_push.c \
 			sort_aux.c \
 			rotate.c \
-			error_handling.c
+			error_handling.c \
+			hacky_stack.c
 
 OBJECT_FILES = $(SOURCE_FILES:.c=.o)
 
