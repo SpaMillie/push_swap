@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	swap(int *stack, t_params *params, int length)
+void	swap(int *stack, int length, char c)
 {
 	int	temp;
 
@@ -21,12 +21,12 @@ void	swap(int *stack, t_params *params, int length)
 	stack[1] = temp;
 	if (length <= 1)
 		return ;
-	if (params->stack == 'b')
+	if (c == 'b')
 	{
 		write(1, "sb", 3);
 		write(1, "\n", 1);
 	}
-	else if (params->stack == 'a')
+	else if (c == 'a')
 	{
 		write(1, "sa", 3);
 		write(1, "\n", 1);
@@ -35,8 +35,8 @@ void	swap(int *stack, t_params *params, int length)
 
 void	swap_both(int *a, int *b, t_params *params)
 {
-	swap(a, params, params->length_a);
-	swap(b, params, params->length_b);
+	swap(a, params->length_a,'c');
+	swap(b, params->length_b, 'c');
 	write(1, "ss", 3);
 	write(1, "\n", 1);
 }

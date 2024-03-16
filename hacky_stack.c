@@ -29,7 +29,7 @@ void	sixty_smallest(t_params *params)
 				r_stack(params->stack_b, params, 'b');
 			else if (params->length_b > 1 && \
 			params->stack_b[0] < params->stack_b[1])
-				swap(params->stack_b, params, params->length_b);
+				swap(params->stack_b, params->length_b, 'b');
 		}
 		else
 			r_stack(params->stack_a, params, 'a');
@@ -40,11 +40,15 @@ void	sixty_smallest(t_params *params)
 void	half_half(t_params *params)
 {
 	int	i;
-	
-	i = params->length_aux - (params->length_aux - params->length_a);
-	params->counter = 0;
-	while (params->counter < i + (params->length_a / 2))
+
+	printf("entered half-half\n");	
+	i = params->length_aux - params->length_a;
+	printf("i je %d\n", i);
+	params->counter = params->length_a;
+	printf("counter == %d\n", params->counter);
+	while (params->counter > 1)
 	{
+		printf("pre stack_a[0] je %d\n", params->stack_a[0]);
 		if (params->stack_a[0] < params->aux_stack[i + (params->length_a / 2)])
 		{
 			push(params->stack_a, params->stack_b, 'b', params);
@@ -53,12 +57,15 @@ void	half_half(t_params *params)
 				r_stack(params->stack_b, params, 'b');
 			else if (params->length_b > 1 && \
 			params->stack_b[0] < params->stack_b[1])
-				swap(params->stack_b, params, params->length_b);
+				swap(params->stack_b, params->length_b, 'b');
 		}
 		else
 			r_stack(params->stack_a, params, 'a');
-		params->counter++;
+		params->counter--;
+	printf("posle stack_a[0] je %d\n", params->stack_a[0]);
+	printf("params->counter je %d\n", params->counter);
 	}
+		printf("checkpoint half half\n");
 }
 
 void	hacky_stack(t_params *params)
@@ -67,24 +74,29 @@ void	hacky_stack(t_params *params)
 		sixty_smallest(params);
 	while (params->length_a > 3)
 		half_half(params);
-	if (check_if_sorted(params) == 0)
-		return ;
-	if (params->length_a == 2)
+	if (params->length_a == 2 && \
+		params->stack_a[0] > params->stack_a[1])
 	{
-		swap(params->stack_a, params, 2);
+		swap(params->stack_a, 2, 'a');
 		return ;
 	}
 	else if (params->length_a == 3)
-		three_nums(params);
-
+	{
+		if (params->stack_a[0] < params->stack_a[1] && \
+		params->stack_a[1] < params->stack_a[2])
+			return ;
+		else
+			three_nums(params);
+	}	
+	printf("checkpoint hackystack\n");
 	int i = 0;
-	while (params->stack_a[i] < params->length_a)
+	while (i < params->length_a)
 	{
 		printf("A[%d] je %d\n", i, params->stack_a[i]);
 		i++;
 	}
 	i = 0;
-	while (params->stack_b[i] < params->length_b)
+	while (i < params->length_b)
 	{
 		printf("B[%d] je %d\n", i, params->stack_b[i]);
 		i++;

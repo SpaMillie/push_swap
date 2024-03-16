@@ -34,6 +34,21 @@ int	find_the_big(t_params *params, int *stack, int length)
 	return (params->counter);
 }
 
+int	check_if_sorted_big(t_params *params)
+{
+	int	i;
+
+	i = params->length_a;
+	while (i)
+	{
+		if (params->stack)
+	} && params->aux_stack[i] == params->stack_a[i])
+		i++;
+	if (params->length == i)
+		return (0);
+	else
+		return (1);
+}
 
 int	check_if_sorted(t_params *params)
 {
@@ -55,17 +70,17 @@ void	three_nums(t_params *params)
 	{
 		rr_stack(params->stack_a, params, 'a');
 		if (check_if_sorted(params) != 0)
-			swap(params->stack_a, params, 3);
+			swap(params->stack_a, 3, 'a');
 	}
 	else if (params->stack_a[0] > params->stack_a[1] && \
 		params->stack_a[0] > params->stack_a[2])
 	{
 		r_stack(params->stack_a, params, 'a');
 		if (check_if_sorted(params) != 0)
-			swap(params->stack_a, params, 3);
+			swap(params->stack_a, 3, 'a');
 	}
 	else
-		swap(params->stack_a, params, 3);
+		swap(params->stack_a, 3, 'a');
 	return ;
 }
 
@@ -75,7 +90,7 @@ void	push_swap(t_params *params)
 		return ;
 	if (params->length == 2)
 	{
-		swap(params->stack_a, params, 2);
+		swap(params->stack_a, 2, 'a');
 		return ;
 	}
 	else if (params->length == 3)

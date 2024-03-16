@@ -15,7 +15,7 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
-# include "Libft/libft.h"
+# include "Libft/include/libft.h"
 
 /* length == index */
 typedef struct s_params
@@ -59,7 +59,7 @@ void	r_both(int *a, int *b, t_params *params);
 void	rr_stack(int *stack, t_params *params, char c);
 void	rr_both(int *a, int *b, t_params *params);
 //swap_and_push.c
-void	swap(int *stack, t_params *params, int length);
+void	swap(int *stack, int length, char c);
 void	swap_both(int *a, int *b, t_params *params);
 void	push_to(int temp, int *stack, int length);
 void	push_from(int *stack, t_params *params, int length);
