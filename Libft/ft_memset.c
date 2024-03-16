@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*#include <stdio.h>*/
-#include "libft.h"
+#include "./include/libft.h"
 
 void	*ft_memset(void *array, int c, size_t n)
 {

@@ -9,7 +9,7 @@
 /*   Updated: 2023/11/04 12:54:46 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "./include/libft.h"
 /*#include <fcntl.h>*/
 
 void	ft_putchar_fd(char c, int fd)

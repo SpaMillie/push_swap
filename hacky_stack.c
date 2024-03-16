@@ -15,14 +15,17 @@
 
 void	sixty_smallest(t_params *params)
 {
+	int	i;
+
+	i = params->length_aux - (params->length_aux - params->length_a);
 	params->counter = 0;
-	while (params->counter < params->length)
+	while (params->counter < 60)
 	{
-		if (params->stack_a[0] < params->aux_stack[60])
+		if (params->stack_a[0] < params->aux_stack[i + 60])
 		{
 			push(params->stack_a, params->stack_b, 'b', params);
 			if (params->length_b > 1 && \
-			params->stack_b[0] < params->aux_stack[30])
+			params->stack_b[0] < params->aux_stack[i + 30])
 				r_stack(params->stack_b, params, 'b');
 			else if (params->length_b > 1 && \
 			params->stack_b[0] < params->stack_b[1])
@@ -34,71 +37,46 @@ void	sixty_smallest(t_params *params)
 	}
 }
 
-void	half_half(int start, int end, int half, t_params *params)
+void	half_half(t_params *params)
 {
+	int	i;
+	
+	i = params->length_aux - (params->length_aux - params->length_a);
 	params->counter = 0;
-	while (params->counter < params->length_a)
+	while (params->counter < i + (params->length_a / 2))
 	{
-		//cant do this, what if its 1243, use find the biggest
-		if (params->stack_a[0] == params->aux_stack[params->length_aux - 1]
-			|| params->stack_a[0] == params->aux_stack[params->length_aux - 2]
-			|| params->stack_a[0] == params->aux_stack[params->length_aux - 3])
-			params->counter += 0;
-		else if (params->stack_a[0] < params->aux_stack[end])
+		if (params->stack_a[0] < params->aux_stack[i + (params->length_a / 2)])
 		{
 			push(params->stack_a, params->stack_b, 'b', params);
-			if (params->stack_b[0] < params->aux_stack[start + half])
+			if (params->length_b > 1 && \
+			params->stack_b[0] < params->aux_stack[i + ((params->length_a / 2) / 2)])
 				r_stack(params->stack_b, params, 'b');
-			else
-			{
-				if (params->length_b > 1 && \
-				params->stack_b[0] < params->stack_b[1])
-					swap(params->stack_b, params, params->length_b);
-			}
+			else if (params->length_b > 1 && \
+			params->stack_b[0] < params->stack_b[1])
+				swap(params->stack_b, params, params->length_b);
 		}
 		else
 			r_stack(params->stack_a, params, 'a');
 		params->counter++;
 	}
 }
-void	more_than_sixty(t_params *params, int start, int end, int half)
-{
-	if (params->length > 60)
-	{
-		sixty_smallest(params);
-		params->length -= 60;
-		start += 60;
-	}
-	while (params->length > 120)
-	{
-		end += 60;
-		half_half(start, end, (end - start) / 2, params);
-		start += 60;
-		params->length -= 60;
-	}
-	if (params->length > 60)
-	{
-		half_half(start, end, (end - start) / 2, params);
-		params->length -= 60;
-		start += 60;
-	}	
-}
-
 
 void	hacky_stack(t_params *params)
 {
-	int	start;
-	int	end;
-
-	if (params->length > 60)
-		more_than_sixty(params, 0, 60, 30);
-	start = 0;
-	end = params->length_aux;
-	half_half(start, end, (end - start) / 2, params);
+	while (params->length_a > 120)
+		sixty_smallest(params);
+	while (params->length_a > 3)
+		half_half(params);
 	if (check_if_sorted(params) == 0)
 		return ;
-	else
+	if (params->length_a == 2)
+	{
+		swap(params->stack_a, params, 2);
+		return ;
+	}
+	else if (params->length_a == 3)
 		three_nums(params);
+
 	int i = 0;
 	while (params->stack_a[i] < params->length_a)
 	{

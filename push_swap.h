@@ -70,7 +70,7 @@ void	malloc_fail(t_params *params);
 int		error_message(void);
 //hacky_stack.c
 void	hacky_stack(t_params *params);
-void	half_half(int start, int end, int half, t_params *params);
+void	half_half(t_params *params);
 void	sixty_smallest(t_params *params);
 
 #endif

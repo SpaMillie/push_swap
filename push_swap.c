@@ -34,27 +34,6 @@ int	find_the_big(t_params *params, int *stack, int length)
 	return (params->counter);
 }
 
-// int	find_the_small(t_params *params, int *stack, int length)
-// {
-// 	int	i;
-
-// 	i = stack[0];
-// 	params->counter = 1;
-// 	while (params->counter < length)
-// 	{
-// 		if (i > stack[params->counter])
-// 		{
-// 			i = stack[params->counter];
-// 			params->counter++;
-// 		}
-// 		else
-// 			params->counter++;
-// 	}
-// 	params->counter = 0;
-// 	while (stack[params->counter] != i)
-// 		params->counter++;
-// 	return (params->counter);
-// }
 
 int	check_if_sorted(t_params *params)
 {
