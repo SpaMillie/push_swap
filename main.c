@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 18:30:05 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/19 17:31:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	create_stacks(char **str, t_params *params)
 	int	j;
 
 	i = 0;
-	j = params->args;
+	params->length = 0;
 	while (str[params->length] != '\0')
 		params->length++;
+	j = params->length;
 	params->stack_a = malloc(sizeof(int) * params->length);
 	params->stack_b = malloc(sizeof(int) * params->length);
 	params->aux_stack = malloc(sizeof(int) * params->length);
@@ -29,7 +30,7 @@ int	create_stacks(char **str, t_params *params)
 		malloc_fail(params);
 		return (1);
 	}
-	while (j-- > 1)
+	while (j-- > 0)
 	{
 		params->stack_a[i] = ft_atoi(str[i]);
 		i++;
@@ -39,6 +40,8 @@ int	create_stacks(char **str, t_params *params)
 		return (1);
 	return (0);
 }
+
+char	**free_all(char **res);
 
 int	check_passed(char **str, t_params *params)
 {
@@ -60,28 +63,27 @@ int	check_passed(char **str, t_params *params)
 	if (params->check == 1)
 	{
 		if (j == 2)
-			free(list);
+			free_all(list);
 		return (1);
 	}
 	if (params->args == 2)
-		free(list);
+		free_all(list);
 	return (0);
 }
 
-void	init_params(t_params *params, int argc)
-{
-	params->stack_a = NULL;
-	params->stack_b = NULL;
-	params->aux_stack = NULL;
-	params->check = 0;
-	params->counter = 0;
-	params->args = argc;
-	params->length = 0;
-	params->length_a = 0;
-	params->length_b = 0;
-	params->length_aux = 0;
-	params->stack = 'a';
-}
+// void	init_params(t_params *params, int argc)
+// {
+// 	params->stack_a = NULL;
+// 	params->stack_b = NULL;
+// 	params->aux_stack = NULL;
+// 	params->check = 0;
+// 	params->counter = 0;
+// 	params->length = 0;
+// 	params->length_a = 0;
+// 	params->length_b = 0;
+// 	params->length_aux = 0;
+// 	params->stack = 'a';
+// }
 
 int	main(int argc, char **argv)
 {
@@ -89,7 +91,7 @@ int	main(int argc, char **argv)
 
 	if (argc >= 2)
 	{
-		init_params(&params, argc);
+		params.args = argc;
 		params.check = check_if_valid (argv, &params);
 		if (params.check != 0)
 			return (error_message());

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 12:58:59 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 15:28:55 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/19 16:00:01 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	check_if_sorted_all(t_params *params)
 	int	i;
 
 	i = 0;
-	while (i < params->length && params->aux_stack[i] == params->stack_a[i])
+	while (i < params->length_aux && params->aux_stack[i] == params->stack_a[i])
 		i++;
-	if (params->length == i)
+	if (params->length_aux == i)
 		return (0);
 	else
 		return (1);

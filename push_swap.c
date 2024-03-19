@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:26:01 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 15:28:34 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/19 15:59:57 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ void	push_swap(t_params *params)
 {
 	if (check_if_sorted_all(params) == 0)
 		return ;
-	if (params->length == 2)
+	if (params->length_aux == 2)
 	{
 		swap(params->stack_a, 2, 'a');
 		return ;
 	}
-	else if (params->length == 3)
+	else if (params->length_aux == 3)
 		three_nums(params, 0);
 	else
 		hacky_stack(params);

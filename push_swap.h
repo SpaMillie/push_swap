@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 15:29:07 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/19 16:54:08 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ typedef struct s_params
 	int		length_a;
 	int		length_b;
 	int		length_aux;
-	char	stack;
+	// char	stack;
 }	t_params;
 
 //main.c
 int		create_stacks(char **str, t_params *params);
 int		check_passed(char **str, t_params *params);
-void	init_params(t_params *params, int argc);
+// void	init_params(t_params *params, int argc);
 int		main(int argc, char **argv);
 //checking_if_valid.c
 int		soft_check_for_limit(char *str, int length);
 int		check_for_spaces(char *str);
-int		check_str(char *str, int i);
+int		check_str(char *str, int i, t_params *params);
 int		check_if_valid_one(char *str, t_params *params);
 int		check_if_valid(char **str, t_params *params);
 //checking_if_sorted.c
