@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:25:42 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/15 21:23:11 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/19 15:16:28 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 void	sixty_smallest(t_params *params)
 {
 	int	i;
+	int	length;
 
-	i = params->length_aux - (params->length_aux - params->length_a);
-	params->counter = 0;
-	while (params->counter < 60)
+	length = params->length_aux - (params->length_aux - params->length_a);
+	i = 0;
+	while (i < 60)
 	{
-		if (params->stack_a[0] < params->aux_stack[i + 60])
+		if (params->stack_a[0] < params->aux_stack[length + 60])
 		{
 			push(params->stack_a, params->stack_b, 'b', params);
 			if (params->length_b > 1 && \
@@ -33,27 +34,25 @@ void	sixty_smallest(t_params *params)
 		}
 		else
 			r_stack(params->stack_a, params, 'a');
-		params->counter++;
+		i++;
 	}
 }
 
 void	half_half(t_params *params)
 {
 	int	i;
+	int	length;
 
-	printf("entered half-half\n");	
-	i = params->length_aux - params->length_a;
-	printf("i je %d\n", i);
-	params->counter = params->length_a;
-	printf("counter == %d\n", params->counter);
-	while (params->counter > 1)
+	length = params->length_a / 2 + (params->length_aux - params->length_a);
+	i = params->length_a;
+	while (i > 0)
 	{
-		printf("pre stack_a[0] je %d\n", params->stack_a[0]);
-		if (params->stack_a[0] < params->aux_stack[i + (params->length_a / 2)])
+		if (params->stack_a[0] < params->aux_stack[length])
 		{
 			push(params->stack_a, params->stack_b, 'b', params);
 			if (params->length_b > 1 && \
-			params->stack_b[0] < params->aux_stack[i + ((params->length_a / 2) / 2)])
+			params->stack_b[0] < \
+			params->aux_stack[length / 2])
 				r_stack(params->stack_b, params, 'b');
 			else if (params->length_b > 1 && \
 			params->stack_b[0] < params->stack_b[1])
@@ -61,11 +60,8 @@ void	half_half(t_params *params)
 		}
 		else
 			r_stack(params->stack_a, params, 'a');
-		params->counter--;
-	printf("posle stack_a[0] je %d\n", params->stack_a[0]);
-	printf("params->counter je %d\n", params->counter);
+		i--;
 	}
-		printf("checkpoint half half\n");
 }
 
 void	hacky_stack(t_params *params)
@@ -74,33 +70,25 @@ void	hacky_stack(t_params *params)
 		sixty_smallest(params);
 	while (params->length_a > 3)
 		half_half(params);
-	if (params->length_a == 2 && \
-		params->stack_a[0] > params->stack_a[1])
-	{
-		swap(params->stack_a, 2, 'a');
+	if (check_if_sorted_big(params) == 0)
 		return ;
-	}
+	else if (params->length_a == 2)
+		swap(params->stack_a, 2, 'a');
 	else if (params->length_a == 3)
-	{
-		if (params->stack_a[0] < params->stack_a[1] && \
-		params->stack_a[1] < params->stack_a[2])
-			return ;
-		else
-			three_nums(params);
-	}	
+		three_nums(params, 1);
 	printf("checkpoint hackystack\n");
-	int i = 0;
-	while (i < params->length_a)
-	{
-		printf("A[%d] je %d\n", i, params->stack_a[i]);
-		i++;
-	}
-	i = 0;
-	while (i < params->length_b)
-	{
-		printf("B[%d] je %d\n", i, params->stack_b[i]);
-		i++;
-	}
+	// int i = 0;
+	// while (i < params->length_a)
+	// {
+	// 	printf("A[%d] je %d\n", i, params->stack_a[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// while (i < params->length_b)
+	// {
+	// 	printf("B[%d] je %d\n", i, params->stack_b[i]);
+	// 	i++;
+	// }
 }
 
 

@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 15:07:23 by mspasic           #+#    #+#              #
-#    Updated: 2023/11/15 19:38:21 by mspasic          ###   ########.fr        #
+#    Updated: 2024/03/19 14:08:23 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJ_FLS = $(SRC_FLS:.c=.o)
 BOBJ_FLS = $(BNS_FLS:.c=.o)
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -Werror
 #deleted Werror
 
 all: $(NAME)

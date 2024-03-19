@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/15 19:55:45 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/19 15:29:07 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,17 @@ int		check_for_spaces(char *str);
 int		check_str(char *str, int i);
 int		check_if_valid_one(char *str, t_params *params);
 int		check_if_valid(char **str, t_params *params);
+//checking_if_sorted.c
+int		check_if_sorted_big(t_params *params);
+int		check_if_sorted_all(t_params *params);
+int		check_if_sorted(t_params *params, int option);
 //sort_aux.c
 void	add_number(t_params *params, int num, int start, int end);
 int		sort_aux(t_params *params, int length);
 //push_swap.c
-int		find_the_big(t_params *params, int *stack, int length);
+// int		find_the_big(t_params *params, int *stack, int length);
 // int		find_the_small(t_params *params, int *stack, int length);
-int		check_if_sorted(t_params *params);
-void	three_nums(t_params *params);
+void	three_nums(t_params *params, int option);
 void	push_swap(t_params *params);
 //rotate.c
 void	r_stack(int *stack, t_params *params, char c);

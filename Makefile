@@ -6,14 +6,14 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 21:44:20 by mspasic           #+#    #+#              #
-#    Updated: 2024/03/15 19:57:48 by mspasic          ###   ########.fr        #
+#    Updated: 2024/03/19 14:08:04 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra 
+CFLAGS = -Wall -Wextra -Werror 
 # deleted -Werror
 
 LIBFT_PATH = Libft/
@@ -22,6 +22,7 @@ LIBFT = $(LIBFT_PATH)$(LIBFT_NAME)
 
 SOURCE_FILES = main.c \
 			checking_if_valid.c \
+			checking_if_sorted.c \
 			push_swap.c \
 			swap_and_push.c \
 			sort_aux.c \
