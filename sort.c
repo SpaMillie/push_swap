@@ -12,15 +12,39 @@
 
 #include "push_swap.h"
 
-void	sorting_hat(t_params *params)
+int	check_where_next(t_params *params)
 {
-	int	num;
 	int	i;
+	int	num;
 
-	num = params->aux_stack[params->length_aux - 1];
 	i = 0;
-	while (params->length_aux - i > 0)
-	{
+	num = params->aux_stack[params->length_aux - params->length_a - 1];
+	while (num != params->stack_b[i])
+		i++;
+	return(i);
+}
 
+
+void	sorting_hat(t_params *params)
+{	int	index;
+	int	num;
+
+	while (params->length_b > 0)
+	{
+		index = check_where_next(params);
+		num = params->stack_b[index];
+		if (index < params->length_b / 2)
+		{
+			while (params->stack_b[0] != num)
+				r_stack(params->stack_b, params, 'b');
+			push(params->stack_a, params->stack_b, 'a', params);
+		}
+		else
+		{
+			while (params->stack_b[0] != num)
+				rr_stack(params->stack_b, params, 'b');
+			push(params->stack_a, params->stack_b, 'a', params);
+
+		}
 	}
 }

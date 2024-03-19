@@ -13,7 +13,7 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra 
 # deleted -Werror
 
 LIBFT_PATH = Libft/
@@ -26,6 +26,7 @@ SOURCE_FILES = main.c \
 			push_swap.c \
 			swap_and_push.c \
 			sort_aux.c \
+			sort.c \
 			rotate.c \
 			error_handling.c \
 			hacky_stack.c

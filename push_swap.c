@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 // int	find_the_big(t_params *params, int *stack, int length)
 // {
@@ -68,4 +69,11 @@ void	push_swap(t_params *params)
 		three_nums(params, 0);
 	else
 		hacky_stack(params);
+	sorting_hat(params);
+	int i = 0;
+	while (i < params->length_a)
+	{
+		printf("A[%d] je %d\n", i, params->stack_a[i]);
+		i++;
+	}
 }

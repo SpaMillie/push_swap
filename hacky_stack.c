@@ -59,7 +59,7 @@ void	half_half(t_params *params)
 				swap(params->stack_b, params->length_b, 'b');
 		}
 		else
-			r_stack(params->stack_a, params, 'a');
+			r_stack(params->stack_a, params, 'a');	
 		i--;
 	}
 }
@@ -76,7 +76,7 @@ void	hacky_stack(t_params *params)
 		swap(params->stack_a, 2, 'a');
 	else if (params->length_a == 3)
 		three_nums(params, 1);
-	printf("checkpoint hackystack\n");
+	// printf("checkpoint hackystack\n");
 	// int i = 0;
 	// while (i < params->length_a)
 	// {

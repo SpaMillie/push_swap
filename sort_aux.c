@@ -27,6 +27,7 @@ int	sort_aux(t_params *params, int length)
 	int	i;
 
 	params->counter = 0;
+	params->length_aux = 0;
 	params->aux_stack[params->counter] = params->stack_a[params->counter];
 	params->counter++;
 	params->length_aux++;

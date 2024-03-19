@@ -75,5 +75,8 @@ int		error_message(void);
 void	hacky_stack(t_params *params);
 void	half_half(t_params *params);
 void	sixty_smallest(t_params *params);
+//sort.c
+int		check_where_next(t_params *params);
+void	sorting_hat(t_params *params);
 
 #endif

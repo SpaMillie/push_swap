@@ -33,7 +33,7 @@ OBJ_FLS = $(SRC_FLS:.c=.o)
 BOBJ_FLS = $(BNS_FLS:.c=.o)
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 #deleted Werror
 
 all: $(NAME)
