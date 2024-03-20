@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 21:44:20 by mspasic           #+#    #+#              #
-#    Updated: 2024/03/20 15:49:31 by mspasic          ###   ########.fr        #
+#    Updated: 2024/03/20 16:44:35 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ OBJECT_FILES = $(SOURCE_FILES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJECT_FILES)
+$(NAME): $(OBJECT_FILES) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJECT_FILES) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
@@ -55,4 +55,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all re libft push_swap
+.PHONY: clean fclean all re libft
