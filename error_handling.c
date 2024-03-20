@@ -6,13 +6,13 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:26:52 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/12 15:55:55 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 15:30:53 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	duplicate_found(t_params *params)
+int	something_went_wrong(t_params *params)
 {
 	free(params->stack_a);
 	free(params->stack_b);

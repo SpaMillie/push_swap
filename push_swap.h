@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/20 14:42:01 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 15:28:40 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_params
 }	t_params;
 
 //main.c
+int		fill_a(t_params *params, char **str, int length);
 int		create_stacks(char **str, t_params *params);
 int		check_passed(char **str, t_params *params);
 int		main(int argc, char **argv);
@@ -46,6 +47,8 @@ int		check_if_valid(char **str, t_params *params);
 int		check_if_sorted_big(t_params *params);
 int		check_if_sorted_all(t_params *params);
 int		check_if_sorted(t_params *params, int option);
+//ft_atol.c
+long	ft_atol(const char *str);
 //sort_aux.c
 void	add_number(t_params *params, int num, int start, int end);
 int		sort_aux(t_params *params, int length);
@@ -66,7 +69,7 @@ void	push_to(int temp, int *stack, int length);
 void	push_from(int *stack, int length);
 void	push(int *stack_a, int *stack_b, char c, t_params *params);
 //error_handling.c
-int		duplicate_found(t_params *params);
+int		something_went_wrong(t_params *params);
 void	malloc_fail(t_params *params);
 int		error_message(void);
 //hacky_stack.c
