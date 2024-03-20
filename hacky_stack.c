@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:25:42 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/20 14:40:43 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 17:34:42 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sixty_smallest(t_params *params)
 	int	i;
 	int	length;
 
-	length = params->length_aux - (params->length_aux - params->length_a);
+	length = params->length_aux - params->length_a;
 	i = 0;
 	while (i < 60)
 	{
@@ -30,10 +30,10 @@ void	sixty_smallest(t_params *params)
 			else if (params->length_b > 1 && \
 			params->stack_b[0] < params->stack_b[1])
 				swap(params->stack_b, params->length_b, 'b');
+			i++;
 		}
 		else
 			r_stack(params->stack_a, params, 'a');
-		i++;
 	}
 }
 
