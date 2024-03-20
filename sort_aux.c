@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:49:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 17:10:31 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 13:19:19 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	sort_aux(t_params *params, int length)
 				break ;
 		}
 		add_number(params, params->stack_a[params->counter], \
-					i, params->length_aux + 1);
+					i, params->length_aux);
 		params->counter++;
 		params->length_aux++;
 	}

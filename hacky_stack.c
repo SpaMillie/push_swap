@@ -6,12 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:25:42 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 17:37:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:40:43 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	sixty_smallest(t_params *params)
 {
@@ -42,7 +41,9 @@ void	half_half(t_params *params)
 {
 	int	i;
 	int	length;
+	int	counter;
 
+	counter = params->length_a / 2;
 	length = params->length_a / 2 + (params->length_aux - params->length_a);
 	i = params->length_a;
 	while (i > 0)
@@ -57,9 +58,10 @@ void	half_half(t_params *params)
 			else if (params->length_b > 1 && \
 			params->stack_b[0] < params->stack_b[1])
 				swap(params->stack_b, params->length_b, 'b');
+			counter--;
 		}
-		else
-			r_stack(params->stack_a, params, 'a');	
+		else if (counter > 0)
+			r_stack(params->stack_a, params, 'a');
 		i--;
 	}
 }
@@ -76,19 +78,4 @@ void	hacky_stack(t_params *params)
 		swap(params->stack_a, 2, 'a');
 	else if (params->length_a == 3)
 		three_nums(params, 1);
-	// printf("checkpoint hackystack\n");
-	// int i = 0;
-	// while (i < params->length_a)
-	// {
-	// 	printf("A[%d] je %d\n", i, params->stack_a[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// while (i < params->length_b)
-	// {
-	// 	printf("B[%d] je %d\n", i, params->stack_b[i]);
-	// 	i++;
-	// }
 }
-
-

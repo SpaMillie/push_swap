@@ -6,12 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:07:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 17:31:11 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:15:09 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	create_stacks(char **str, t_params *params)
 {
@@ -23,9 +22,9 @@ int	create_stacks(char **str, t_params *params)
 	while (str[params->length] != '\0')
 		params->length++;
 	j = params->length;
-	params->stack_a = malloc(sizeof(int) * params->length);
-	params->stack_b = malloc(sizeof(int) * params->length);
-	params->aux_stack = malloc(sizeof(int) * params->length);
+	params->stack_a = (int *)malloc(sizeof(int) * params->length);
+	params->stack_b = (int *)malloc(sizeof(int) * params->length);
+	params->aux_stack = (int *)malloc(sizeof(int) * params->length);
 	if (!params->stack_a || !params->stack_b || !params->aux_stack)
 	{
 		malloc_fail(params);
@@ -71,20 +70,6 @@ int	check_passed(char **str, t_params *params)
 		free_all(list);
 	return (0);
 }
-
-// void	init_params(t_params *params, int argc)
-// {
-// 	params->stack_a = NULL;
-// 	params->stack_b = NULL;
-// 	params->aux_stack = NULL;
-// 	params->check = 0;
-// 	params->counter = 0;
-// 	params->length = 0;
-// 	params->length_a = 0;
-// 	params->length_b = 0;
-// 	params->length_aux = 0;
-// 	params->stack = 'a';
-// }
 
 int	main(int argc, char **argv)
 {

@@ -6,15 +6,14 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 21:44:20 by mspasic           #+#    #+#              #
-#    Updated: 2024/03/19 14:08:04 by mspasic          ###   ########.fr        #
+#    Updated: 2024/03/20 14:20:09 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = cc
-CFLAGS = -Wall -Wextra 
-# deleted -Werror
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_PATH = Libft/
 LIBFT_NAME = libft.a
@@ -26,7 +25,6 @@ SOURCE_FILES = main.c \
 			push_swap.c \
 			swap_and_push.c \
 			sort_aux.c \
-			sort.c \
 			rotate.c \
 			error_handling.c \
 			hacky_stack.c

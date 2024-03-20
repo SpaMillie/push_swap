@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:00:25 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 17:08:40 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:39:38 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	soft_check_for_limit(char *str, int length)
 		return (0);
 	return (1);
 }
-
 
 int	check_for_spaces(char *str)
 {

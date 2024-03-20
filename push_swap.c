@@ -6,34 +6,47 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:26:01 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 15:59:57 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:41:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-// int	find_the_big(t_params *params, int *stack, int length)
-// {
-// 	int	i;
+int	check_where_next(t_params *params)
+{
+	int	i;
+	int	num;
 
-// 	i = stack[0];
-// 	params->counter = 1;
-// 	while (params->counter < length)
-// 	{
-// 		if (i < stack[params->counter])
-// 		{
-// 			i = stack[params->counter];
-// 			params->counter++;
-// 		}
-// 		else
-// 			params->counter++;
-// 	}
-// 	params->counter = 0;
-// 	while (stack[params->counter] != i)
-// 		params->counter++;
-// 	return (params->counter);
-// }
+	i = 0;
+	num = params->aux_stack[params->length_aux - params->length_a - 1];
+	while (num != params->stack_b[i])
+		i++;
+	return (i);
+}
+
+void	sorting_hat(t_params *params)
+{
+	int	index;
+	int	num;
+
+	while (params->length_b > 0)
+	{
+		index = check_where_next(params);
+		num = params->stack_b[index];
+		if (index < params->length_b / 2)
+		{
+			while (params->stack_b[0] != num)
+				r_stack(params->stack_b, params, 'b');
+			push(params->stack_a, params->stack_b, 'a', params);
+		}
+		else
+		{
+			while (params->stack_b[0] != num)
+				rr_stack(params->stack_b, params, 'b');
+			push(params->stack_a, params->stack_b, 'a', params);
+		}
+	}
+}
 
 void	three_nums(t_params *params, int option)
 {
@@ -70,10 +83,4 @@ void	push_swap(t_params *params)
 	else
 		hacky_stack(params);
 	sorting_hat(params);
-	int i = 0;
-	while (i < params->length_a)
-	{
-		printf("A[%d] je %d\n", i, params->stack_a[i]);
-		i++;
-	}
 }

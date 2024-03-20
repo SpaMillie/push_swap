@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 12:58:59 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/19 16:00:01 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:37:16 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,3 @@ int	check_if_sorted(t_params *params, int option)
 	else
 		return (1);
 }
-
