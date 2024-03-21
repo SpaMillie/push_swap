@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:25:42 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/20 17:34:42 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:48:53 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sixty_smallest(t_params *params)
 		{
 			push(params->stack_a, params->stack_b, 'b', params);
 			if (params->length_b > 1 && \
-			params->stack_b[0] < params->aux_stack[i + 30])
+			params->stack_b[0] < params->aux_stack[length + 30])
 				r_stack(params->stack_b, params, 'b');
 			else if (params->length_b > 1 && \
 			params->stack_b[0] < params->stack_b[1])
