@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/20 15:28:40 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/21 13:44:55 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_params
 	int		length_a;
 	int		length_b;
 	int		length_aux;
+	int		master;
+	int		student;
 }	t_params;
 
 //main.c
@@ -53,7 +55,8 @@ long	ft_atol(const char *str);
 void	add_number(t_params *params, int num, int start, int end);
 int		sort_aux(t_params *params, int length);
 //push_swap.c
-int		check_where_next(t_params *params);
+void	check_where_next(t_params *params);
+void	training_montage(t_params *params, int index);
 void	sorting_hat(t_params *params);
 void	three_nums(t_params *params, int option);
 void	push_swap(t_params *params);

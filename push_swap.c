@@ -6,45 +6,69 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:26:01 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/20 14:41:11 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/21 13:44:59 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_where_next(t_params *params)
+void	check_where_next(t_params *params)
 {
 	int	i;
-	int	num;
+	int	j;
+	int	num1;
+	int	num2;
 
 	i = 0;
-	num = params->aux_stack[params->length_aux - params->length_a - 1];
-	while (num != params->stack_b[i])
+	j = 0;
+	num1 = params->aux_stack[params->length_aux - params->length_a - 1];
+	num2 = params->aux_stack[params->length_aux - params->length_a - 2];
+	while (num1 != params->stack_b[i])
 		i++;
-	return (i);
+	while (num2 != params->stack_b[j])
+		j++;
+	params->master = i;
+	params->student = j;
+}
+
+void	training_montage(t_params *params, int index)
+{
+	int	num;
+
+	num = params->stack_b[index];
+	if (index < params->length_b / 2)
+	{
+		while (params->stack_b[0] != num)
+			r_stack(params->stack_b, params, 'b');
+		push(params->stack_a, params->stack_b, 'a', params);
+	}
+	else
+	{
+		while (params->stack_b[0] != num)
+			rr_stack(params->stack_b, params, 'b');
+		push(params->stack_a, params->stack_b, 'a', params);
+	}
 }
 
 void	sorting_hat(t_params *params)
 {
-	int	index;
-	int	num;
+	int	i;
 
 	while (params->length_b > 0)
 	{
-		index = check_where_next(params);
-		num = params->stack_b[index];
-		if (index < params->length_b / 2)
+		check_where_next(params);
+		if (params->master > params->student)
 		{
-			while (params->stack_b[0] != num)
-				r_stack(params->stack_b, params, 'b');
-			push(params->stack_a, params->stack_b, 'a', params);
+			i = 0;
+			params->master = params->stack_b[params->master];
+			training_montage(params, params->student);
+			while (params->master != params->stack_b[i])
+				i++;
+			training_montage(params, i);
+			swap(params->stack_a, params->length_a, 'a');
 		}
 		else
-		{
-			while (params->stack_b[0] != num)
-				rr_stack(params->stack_b, params, 'b');
-			push(params->stack_a, params->stack_b, 'a', params);
-		}
+			training_montage(params, params->master);
 	}
 }
 
