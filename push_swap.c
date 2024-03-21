@@ -6,30 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:26:01 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/21 13:44:59 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/21 15:29:42 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	check_where_next(t_params *params)
-{
-	int	i;
-	int	j;
-	int	num1;
-	int	num2;
-
-	i = 0;
-	j = 0;
-	num1 = params->aux_stack[params->length_aux - params->length_a - 1];
-	num2 = params->aux_stack[params->length_aux - params->length_a - 2];
-	while (num1 != params->stack_b[i])
-		i++;
-	while (num2 != params->stack_b[j])
-		j++;
-	params->master = i;
-	params->student = j;
-}
 
 void	training_montage(t_params *params, int index)
 {
@@ -54,10 +35,9 @@ void	sorting_hat(t_params *params)
 {
 	int	i;
 
-	while (params->length_b > 0)
+	while (params->length_b > 1)
 	{
-		check_where_next(params);
-		if (params->master > params->student)
+		if (check_where_next(params) == 1)
 		{
 			i = 0;
 			params->master = params->stack_b[params->master];
@@ -70,6 +50,8 @@ void	sorting_hat(t_params *params)
 		else
 			training_montage(params, params->master);
 	}
+	if (params->length_b == 1)
+		push(params->stack_a, params->stack_b, 'a', params);
 }
 
 void	three_nums(t_params *params, int option)
