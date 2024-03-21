@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 14:54:29 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/21 15:20:20 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/21 15:52:28 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_where_next(t_params *params)
 	int	j;
 	int	num1;
 	int	num2;
-	int cost;
+	int	cost;
 
 	i = 0;
 	j = 0;

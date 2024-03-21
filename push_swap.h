@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:49:31 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/21 15:20:29 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/21 15:51:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,5 @@ void	sixty_smallest(t_params *params);
 //utils.c
 int		calculate_cost(t_params *params, int index);
 int		check_where_next(t_params *params);
-
 
 #endif
