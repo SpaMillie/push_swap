@@ -6,11 +6,13 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:25:42 by mspasic           #+#    #+#             */
-/*   Updated: 2024/03/21 19:48:53 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/03/21 20:01:06 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//the issue was that i put i + 30 instead of length + 30
 
 void	sixty_smallest(t_params *params)
 {
